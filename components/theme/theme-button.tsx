@@ -6,6 +6,8 @@ import styles from "./theme-button.module.css";
 
 type ThemePreference = "system" | "light" | "dark";
 type ResolvedTheme = "light" | "dark";
+type InitializedState = boolean;
+type MountedState = boolean;
 
 export default function ThemeButton() {
 
@@ -15,6 +17,14 @@ export default function ThemeButton() {
 
     const [resolvedTheme, setResolvedTheme] =
         useState<ResolvedTheme>("light");
+
+    // initialized má na starost, ať se script na aplikaci theme spustí až po inicializaci 
+    const [initialized, setInitialized] =
+        useState<InitializedState>(false);
+
+    // mounted má na starost, aby text podle resolvedTheme se vykreslil až po mounted
+    const [mounted, setMounted] =
+        useState<MountedState>(false);
 
     // Načtení uložené preference při první návštěvě
     useEffect(() => {
@@ -31,10 +41,15 @@ export default function ThemeButton() {
                 ? "dark"
                 : "light"
         );
+
+        setInitialized(true);
+        setMounted(true);
     }, []);
 
     // Nastavení skutečného vzhledu stránky
     useEffect(() => {
+        if (!initialized) return;
+
         const media = window.matchMedia(
             "(prefers-color-scheme: dark)"
         );
@@ -65,7 +80,7 @@ export default function ThemeButton() {
         return () => {
             media.removeEventListener("change", handleSystemChange);
         };
-    }, [preference]);
+    }, [preference, initialized]);
 
     const toggleTheme = () => {
         const nextTheme =
@@ -81,19 +96,28 @@ export default function ThemeButton() {
             <button
                 type="button"
                 role="switch"
-                aria-checked={resolvedTheme === "dark"}
-                aria-label={`Přepnout na ${resolvedTheme === "dark" ? "světlý" : "tmavý"
-                    } režim`}
+                aria-checked={mounted && resolvedTheme === "dark"}
+                aria-label={mounted
+                    ? `Přepnout na ${resolvedTheme === "dark" ? "světlý" : "tmavý"} režim`
+                    : "Přepínání barevného režimu"}
                 onClick={toggleTheme}
                 className={styles.themeToggle}
             >
-                <span aria-hidden="true">
-                    {resolvedTheme === "dark" ? "☀" : "☾"}
-                </span>
+                {mounted ? (
+                    <>
+                        {/* <span aria-hidden="true">
+                            {resolvedTheme === "dark" ? "☀" : "☾"}
+                        </span> */}
 
-                <span className="theme-toggle__label">
-                    {resolvedTheme === "dark" ? "Light" : "Dark"}
-                </span>
+                        <span className="styles[theme-toggle__label]">
+                            {resolvedTheme === "dark" ? "Light" : "Dark"}
+                        </span>
+                    </>
+                ) : (
+                    <span className="styles[theme-toggle__label] invisible" aria-hidden="true">
+                     Light
+                    </span>
+                )}
             </button>
 
         </>

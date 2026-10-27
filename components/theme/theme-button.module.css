@@ -44,6 +44,7 @@
   font-size: 0.875rem;
 }
 
+
 @media (max-width: 600px) {
   .themeToggle {
     right: 1rem;
