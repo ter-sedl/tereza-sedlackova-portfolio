@@ -1,2 +1,158 @@
 @import "tailwindcss";
 
+
+/* LIGHT MODE */
+
+:root {
+    color-scheme: light;
+
+    /* TEXT
+     Hlavní text, popisky, méně důležité informace a odkazy */
+    --color-text: #302339;
+    --color-text-secondary: #6C5B6D;
+    --color-text-muted: #847786;
+    --color-text-link: #70466F;
+
+    /* BACKGROUNDS
+     Pozadí stránky a střídání sekcí */
+    --color-bg: #FAF5F0;
+    --color-bg-subtle: #F5EDE7;
+    --color-bg-muted: #EFE5DE;
+
+    /* SURFACES
+     Karty projektů, navigace, samostatné obsahové bloky */
+    --color-surface: #FFFFFF;
+    --color-surface-hover: #F7EFEA;
+
+    /* BRAND COLORS
+     Hlavní švestková a doplňková meruňková */
+    --color-plum: #70466F;
+    --color-plum-hover: #5E3A5D;
+    --color-plum-soft: #F0E3EF;
+
+    --color-apricot: #EBC1A8;
+    --color-apricot-hover: #E2AD8F;
+    --color-apricot-soft: #F8E5D9;
+
+    /* BUTTONS
+     Primární tlačítko a méně výrazné sekundární tlačítko */
+    --color-button-primary-bg: #70466F;
+    --color-button-primary-text: #FFFFFF;
+
+    --color-button-secondary-bg: transparent;
+    --color-button-secondary-text: #503451;
+    --color-button-secondary-border: #BBA5BB;
+
+    /* THEME TOGGLE BUTTON
+    | Aby themeButton měl opačné barvy než aktuální theme */
+    --color-toggle-text: #F7EDE8;
+    --color-toggle-surface: #302536;
+    --color-toggle-surface-hover: #3D3042;
+    --color-toggle-border: #E4D8D0;
+
+    /* TAGS
+     Technologie, vlastnosti projektů, hashtagové štítky */
+    --color-tag-bg: #F0E3EF;
+    --color-tag-text: #503451;
+    --color-tag-border: #E0CEE0;
+
+    /* BORDERS
+     Rámečky karet, oddělovače a hranice sekcí */
+    --color-border: #E4D8D0;
+    --color-border-strong: #CDBBBF;
+
+    /* INTERACTION
+     Odkaz při najetí, fokus klávesnicí */
+    --color-text-link-hover: #503451;
+    --color-focus-ring: #70466F;
+}
+
+
+/*  DARK MODE */
+
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    /* TEXT */
+    --color-text: #F7EDE8;
+    --color-text-secondary: #D3BFCF;
+    --color-text-muted: #B5A3B4;
+    --color-text-link: #E0B8DF;
+
+    /* BACKGROUNDS */
+    --color-bg: #201923;
+    --color-bg-subtle: #281F2B;
+    --color-bg-muted: #302536;
+
+    /* SURFACES */
+    --color-surface: #302536;
+    --color-surface-hover: #3D3042;
+
+    /* BRAND COLORS */
+    --color-plum: #D5A6D1;
+    --color-plum-hover: #E2BCE0;
+    --color-plum-soft: #49344B;
+
+    --color-apricot: #EBC1A8;
+    --color-apricot-hover: #F2D0BD;
+    --color-apricot-soft: #49323A;
+
+    /* BUTTONS */
+    --color-button-primary-bg: #D5A6D1;
+    --color-button-primary-text: #201923;
+
+    --color-button-secondary-bg: transparent;
+    --color-button-secondary-text: #F0D5EF;
+    --color-button-secondary-border: #79657D;
+
+    /* THEME TOGGLE BUTTON */
+    --color-toggle-text: #302339;
+    --color-toggle-surface: #FFFFFF;
+    --color-toggle-surface-hover: #F7EFEA;
+    --color-toggle-border: #E4D8D0;
+
+    /* TAGS */
+    --color-tag-bg: #49344B;
+    --color-tag-text: #F0D5EF;
+    --color-tag-border: #6D526F;
+
+    /* BORDERS */
+    --color-border: #493D4B;
+    --color-border-strong: #68566B;
+
+    /* INTERACTION */
+    --color-text-link-hover: #F0D5EF;
+    --color-focus-ring: #D5A6D1;
+}
+
+
+/* GLOBAL STYLES */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+a {
+    color: var(--color-text-link);
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: var(--color-text-link-hover);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 3px;
+}
