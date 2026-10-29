@@ -143,6 +143,12 @@ body {
     color: var(--color-text);
 }
 
+main {
+    width: min(90%, 1200px);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
 a {
     color: var(--color-text-link);
     text-underline-offset: 0.2em;

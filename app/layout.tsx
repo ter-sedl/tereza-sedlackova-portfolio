@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import ThemeButton from "@/components/theme/theme-button";
+import Head from "next/head";
+import Header from "@/components/header/header";
 
 
 export const metadata: Metadata = {
   title: "Tereza Sedláčková",
-  description: "Junior Frontend Developer",
+  description: "Frontend Developer",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -45,8 +46,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full">
+        <Header />
+        <main>
         {children}
+        </main>
         <ThemeButton />
       </body>
     </html>

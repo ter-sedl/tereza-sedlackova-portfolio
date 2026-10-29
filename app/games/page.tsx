@@ -5,8 +5,8 @@ export default function Games() {
         <div>
 
         <p>vyber hru</p>
-        <Link href={"./breakout"} >Breakout</Link>
-        <Link href={"./pokemon-battle"} >Pokemon Type Battle</Link>
+        <Link href="/games/breakout" >Breakout</Link>
+        <Link href="/games/pokemon-battle" >Pokemon Type Battle</Link>
         </div>
     )
 }

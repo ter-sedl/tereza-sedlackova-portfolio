@@ -1,0 +1,142 @@
+
+.header {
+  width: 100%;
+  padding: 1.25rem clamp(1.25rem, 5vw, 5rem);
+  background: var(--color-bg);
+}
+
+.nav {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 3.25rem;
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.homeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  color: var(--color-text);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.homeIcon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  border-radius: 0.8rem;
+  background: var(--color-plum);
+  color: var(--color-button-primary-text);
+
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+}
+
+.navLink {
+  position: relative;
+  padding-block: 0.6rem;
+
+  color: var(--color-text-secondary);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+
+  transition: color 180ms ease;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0.2rem;
+  left: 0;
+
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-plum);
+
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 180ms ease;
+}
+
+.homeLink:hover .homeIcon {
+  background: var(--color-plum-hover);
+}
+
+.navLink:hover {
+  color: var(--color-text);
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.homeLink:focus-visible,
+.navLink:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 1rem 1.1rem;
+  }
+
+  .nav {
+    gap: 1.25rem;
+  }
+
+  .homeLink {
+    gap: 0.5rem;
+  }
+
+  .homeIcon {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 0.7rem;
+  }
+
+  .homeText {
+    font-size: 1rem;
+  }
+
+  .navLinks {
+    gap: 1.1rem;
+  }
+
+  .navLink {
+    font-size: 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .homeIcon,
+  .navLink,
+  .navLink::after {
+    transition: none;
+  }
+}
