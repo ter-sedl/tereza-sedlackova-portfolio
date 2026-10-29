@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
 
-const path = usePathname();
+  const path = usePathname();
 
   return (
     <header className={styles.header}>
@@ -27,20 +27,19 @@ const path = usePathname();
         <div className={styles.navLinks}>
           <Link href="/games" className={`
             ${styles.navLink}
-            ${path ==='/games' ? styles.active : undefined}
+            ${path === "/games" || path.startsWith("/games/") ? styles.active : ""}
             `}>
             Hry
           </Link>
           <Link href="/about" className={`
             ${styles.navLink}
-            ${path ==='/about' ? styles.active : undefined}
+            ${path === '/about' ? styles.active : undefined}
             `}>
             O mně
           </Link>
 
         </div>
       </nav>
-      <p>{path}</p>
     </header>
   );
 }
