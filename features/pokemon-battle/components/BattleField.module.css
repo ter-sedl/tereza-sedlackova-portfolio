@@ -1,0 +1,31 @@
+.battleField {
+    width: calc(100% - 12px);
+    max-width: 800px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 16px;
+}
+
+.cardHolder {
+    width: calc((100%) / 3);
+    aspect-ratio: 3 / 4;
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    border: 2px dashed #aaa;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #7d7b7b;
+}
+
+.dragging {
+    border: 3px solid #a47b7b;
+    color: rgb(37, 37, 37);
+}

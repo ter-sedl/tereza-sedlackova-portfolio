@@ -1,0 +1,58 @@
+.scoreBoard {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    height: 80px;
+}
+
+
+
+.help {
+    position: relative;
+    display: inline-table;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.helpIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20px;
+    height: 20px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+
+    font-size: 13px;
+    font-weight: bold;
+    cursor: help;
+}
+
+.helpTooltip {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+
+    width: 200px;
+    padding: 8px 10px;
+    border-radius: 6px;
+
+    background: #222;
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    z-index: 10;
+}
+
+.help:hover .helpTooltip {
+    display: block;
+}
