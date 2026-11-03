@@ -10,18 +10,18 @@ export default function Home() {
       <main className="w-full max-w-6xl px-0 py-0">
 
         {/* Introduction */}
-        <section className="mb-12 rounded-2xl bg-[var(--color-surface)] p-8">
-          <h1 className="mb-3 text-xl md:text-2xl font-bold text-[var(--color-text)]">
-            Ahoj, jsem Tereza!
+        <section className=" relative mb-12 rounded-2xl bg-[var(--color-surface)] p-8">
+          <h1 className="mb-3 text-xl md:text-2xl text-[var(--color-text)]">
+            Tereza Sedláčková
           </h1>
 
           <p className="mb-6 max-w-2xl text-base md:text-lg leading-relaxed text-[var(--color-text-secondary)]">
-            Jsem začínající frontend developerka se zaměřením na tvorbu
-            moderních a responzivních webových aplikací. Baví mě React,
-            objevování nových technologií a přetváření nápadů ve funkční
-            a přehledné uživatelské rozhraní.
+            Frontend developer se zaměřením na React, Next.js a TypeScript
+            (webové aplikace s responzivním uživatelským rozhraním, UX, UI, práce s daty).
           </p>
-          <Link href={"./about"}>O mě</Link>
+          <span className="absolute bottom-4 right-4">
+            <Link href={"./about"}>O mě →</Link>
+          </span>
 
           {/* Main technologies */}
           <div className="mb-3 flex flex-wrap gap-3">
@@ -52,7 +52,7 @@ export default function Home() {
 
         {/* Projects */}
         <section>
-          <h2 className="mb-6 text-2xl  font-bold text-[var(--color-text)]">
+          <h2 className="mb-6 text-2xl  text-[var(--color-text)]">
             Moje projekty
           </h2>
 
@@ -60,28 +60,34 @@ export default function Home() {
             od breakpointu md vedle sebe. */}
           <div className="flex flex-col gap-6 md:flex-row">
 
-            <article className="flex-1 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
-              <h3 className="mb-3 text-xl font-semibold text-[var(--color-text)] ">
+            <article className="relative flex-1 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+              <h3 className="mb-3 text-xl text-[var(--color-text)] ">
                 Breakout
               </h3>
 
               <p className="text-base  text-[var(--color-text-secondary)] ">
                 Klasická arkádová hra vytvořená pomocí HTML Canvas.
+                <br />
                 Ovládej plošinu, odrážej míček a nič všechny cihličky.
               </p>
-              <Link href={"./games/breakout"}>Breakout(arcanoid)</Link>
+              <span className="absolute bottom-4 right-4">
+                <Link href={"./games/breakout"}>Hraj →</Link>
+              </span>
             </article>
 
-            <article className="flex-1 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
-              <h3 className="mb-3 text-xl font-semibold text-[var(--color-text)]">
+            <article className=" relative flex-1 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+              <h3 className="mb-3 text-xl text-[var(--color-text)]">
                 Pokemon Battle
               </h3>
 
               <p className="text-base text-[var(--color-text-secondary)]">
-                Karetní soubojová hra ze světa Pokémonů. Vyber nejlepšího
-                Pokémona podle typové účinnosti a poraz soupeře.
+                Karetní soubojová hra ze světa Pokémonů. 
+                <br />
+                Vyber nejlepšího Pokémona podle typové účinnosti a poraz soupeře.
               </p>
-              <Link href={"./games/pokemon-battle"}>Pokemon Type battle</Link>
+              <span className="absolute bottom-4 right-4">
+                <Link href={"./games/pokemon-battle"}>Hraj →</Link>
+              </span>
             </article>
 
           </div>
