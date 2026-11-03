@@ -150,7 +150,6 @@ export default function Breakout() {
             ball.current.velocityY = 0;
             setGameResult("won");
             setGameStatus("finished")
-            // draw(ctxRef.current!);
             stopGameLoop();
         }
     }
@@ -307,6 +306,7 @@ export default function Breakout() {
 
         animationId.current = requestAnimationFrame(gameLoop);
     }
+    // gameLoop();
 
     function startGameLoop() {
         gameLoop();
