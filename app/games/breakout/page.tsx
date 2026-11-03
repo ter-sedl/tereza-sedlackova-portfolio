@@ -226,18 +226,20 @@ export default function Breakout() {
 
         // -----Event listenery-----
         // pointermove sleduje pohyb myši i prstu na obrazovce
-        canvasRef.current!.addEventListener("pointermove", (e) => {
-            const scaleX = canvasRef.current!.width / canvasRef.current!.clientWidth;
-            const mouseX = e.offsetX * scaleX;
-
-            paddle.x = Math.max( // rozmezí x souřadnice může být jen v rozmezí šířky, ať zastaví o stěnu
-                0,
-                Math.min(
-                    mouseX - paddle.width / 2,
-                    canvasRef.current!.width - paddle.width
-                )
-            );
-        })
+        if (canvasRef.current ) {
+            canvasRef.current.addEventListener("pointermove", (e) => {
+                const scaleX = canvasRef.current!.width / canvasRef.current!.clientWidth;
+                const mouseX = e.offsetX * scaleX;
+    
+                paddle.x = Math.max( // rozmezí x souřadnice může být jen v rozmezí šířky, ať zastaví o stěnu
+                    0,
+                    Math.min(
+                        mouseX - paddle.width / 2,
+                        canvasRef.current!.width - paddle.width
+                    )
+                );
+            })
+        }
 
 
         // pohyb míčku
@@ -292,8 +294,11 @@ export default function Breakout() {
 
     // -----Vykreslení aktuálního Stavu hry-----
     function draw(ctx: CanvasRenderingContext2D) {
+         if (!canvasRef.current ) {
+            return
+         }
         // Vyčistí canvas před každým vykreslením 
-        ctx.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
+        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
         drawBricks(ctx);
         drawBall(ctx);
         drawPaddle(ctx);
