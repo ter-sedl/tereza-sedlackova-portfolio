@@ -80,20 +80,25 @@ export default function Breakout() {
 
     // Vykreslení všech cihel podle array bricks vytvořené pomocí createBricks
     function drawBricks(ctx: CanvasRenderingContext2D) {
-        const gradient = ctx.createLinearGradient(250, 250, 200, 130);
-        gradient.addColorStop(0, "#7bd6eb");
-        gradient.addColorStop(1, "#88f97c");
-
         bricks.current.forEach((brick) => {
             if (!brick.alive) return;
 
-            ctx.save(); //uloží aktuální nastavení ctx
-            ctx.shadowColor = "rgba(0, 0, 0, 0.2)";
-            ctx.shadowBlur = 4;
-            ctx.shadowOffsetX = 1;
-            ctx.shadowOffsetY = 1;
+            ctx.save();
+
+            // Gradient cihly
+            const gradient = ctx.createLinearGradient(
+                brick.x,
+                brick.y,
+                brick.x,
+                brick.y + brick.height
+            );
+
+            gradient.addColorStop(0, "#45D6D8");
+            gradient.addColorStop(1, "#8B78F6");
+
             ctx.fillStyle = gradient;
 
+            // Zaoblené cihly
             ctx.beginPath();
             ctx.roundRect(
                 brick.x,
@@ -102,10 +107,49 @@ export default function Breakout() {
                 brick.height,
                 8
             );
-
             ctx.fill();
-            ctx.restore(); // vrátí se k naposledy uloženému nastavené ctx
+
+
+            ctx.beginPath();
+            ctx.moveTo(brick.x + 4, brick.y + 1);
+            ctx.lineTo(brick.x + brick.width - 4, brick.y + 1);
+
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            ctx.restore();
         });
+
+
+
+
+        // const gradient = ctx.createLinearGradient(250, 250, 200, 130);
+        // gradient.addColorStop(0, "#7bd6eb");
+        // gradient.addColorStop(1, "#88f97c");
+
+        // bricks.current.forEach((brick) => {
+        //     if (!brick.alive) return;
+
+        //     ctx.save(); //uloží aktuální nastavení ctx
+        //     ctx.shadowColor = "rgba(0, 0, 0, 0.2)";
+        //     ctx.shadowBlur = 4;
+        //     ctx.shadowOffsetX = 1;
+        //     ctx.shadowOffsetY = 1;
+        //     ctx.fillStyle = gradient;
+
+        //     ctx.beginPath();
+        //     ctx.roundRect(
+        //         brick.x,
+        //         brick.y,
+        //         brick.width,
+        //         brick.height,
+        //         8
+        //     );
+
+        //     ctx.fill();
+        //     ctx.restore(); // vrátí se k naposledy uloženému nastavené ctx
+        // });
     }
 
     function checkBrickCollision() {
@@ -157,34 +201,88 @@ export default function Breakout() {
 
     function drawBall(ctx: CanvasRenderingContext2D) {
         ctx.save();
-        ctx.fillStyle = "grey";
+
+        ctx.shadowColor = "rgba(118, 85, 217, 0.35)";
+        // ctx.shadowBlur = 10;
+
+        const ballGradient = ctx.createRadialGradient(
+            ball.current.x - ball.current.radius * 0.3,
+            ball.current.y - ball.current.radius * 0.3,
+            1,
+            ball.current.x,
+            ball.current.y,
+            ball.current.radius
+        );
+
+        ballGradient.addColorStop(0, "#a58ee9");
+        ballGradient.addColorStop(0.45, "#9878F0");
+        ballGradient.addColorStop(1, "#4930A5");
+
+        ctx.fillStyle = ballGradient;
 
         ctx.beginPath();
-        ctx.arc(
-            ball.current.x,              // x
-            ball.current.y,              // y
-            ball.current.radius,               // radius
-            0,                // začátek úhlu
-            Math.PI * 2       // konec úhlu = celý kruh
-        );
+        ctx.arc(ball.current.x, ball.current.y, ball.current.radius, 0, Math.PI * 2);
         ctx.fill();
+
         ctx.restore();
+
+
+
+        // ctx.save();
+        // ctx.fillStyle = "grey";
+
+        // ctx.beginPath();
+        // ctx.arc(
+        //     ball.current.x,              // x
+        //     ball.current.y,              // y
+        //     ball.current.radius,               // radius
+        //     0,                // začátek úhlu
+        //     Math.PI * 2       // konec úhlu = celý kruh
+        // );
+        // ctx.fill();
+        // ctx.restore();
     }
 
     function drawPaddle(ctx: CanvasRenderingContext2D) {
         ctx.save();
-        ctx.fillStyle = "blue";
+
+        const paddleGradient = ctx.createLinearGradient(
+            paddle.x,
+            paddle.y,
+            paddle.x,
+            paddle.y + paddle.height
+        );
+
+        paddleGradient.addColorStop(0, "#a68fe6");
+        paddleGradient.addColorStop(1, "#514078");
+
+        ctx.fillStyle = paddleGradient;
 
         ctx.beginPath();
         ctx.roundRect(
-            paddle.x,  // x
-            paddle.y,  // y
-            paddle.width,  // width
-            paddle.height,    // height
-            8 //radius
+            paddle.x,
+            paddle.y,
+            paddle.width,
+            paddle.height,
+            6
         );
         ctx.fill();
         ctx.restore();
+
+
+        // ctx.save();
+        // ctx.fillStyle = "blue";
+
+        // ctx.beginPath();
+        // ctx.roundRect(
+        //     paddle.x,  // x
+        //     paddle.y,  // y
+        //     paddle.width,  // width
+        //     paddle.height,    // height
+        //     8 //radius
+        // );
+        // ctx.fill();
+        // ctx.restore();
     }
 
 
@@ -226,11 +324,11 @@ export default function Breakout() {
 
         // -----Event listenery-----
         // pointermove sleduje pohyb myši i prstu na obrazovce
-        if (canvasRef.current ) {
+        if (canvasRef.current) {
             canvasRef.current.addEventListener("pointermove", (e) => {
                 const scaleX = canvasRef.current!.width / canvasRef.current!.clientWidth;
                 const mouseX = e.offsetX * scaleX;
-    
+
                 paddle.x = Math.max( // rozmezí x souřadnice může být jen v rozmezí šířky, ať zastaví o stěnu
                     0,
                     Math.min(
@@ -294,9 +392,9 @@ export default function Breakout() {
 
     // -----Vykreslení aktuálního Stavu hry-----
     function draw(ctx: CanvasRenderingContext2D) {
-         if (!canvasRef.current ) {
+        if (!canvasRef.current) {
             return
-         }
+        }
         // Vyčistí canvas před každým vykreslením 
         ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
         drawBricks(ctx);
