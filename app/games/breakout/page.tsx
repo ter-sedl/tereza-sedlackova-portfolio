@@ -484,10 +484,10 @@ export default function Breakout() {
             <h1 className="font-heading">Breakout</h1>
             <h2>
                 {gameResult === "won"
-                    ? "You won"
+                    ? "Vítězství"
                     : gameResult === "lost"
-                        ? "You lost"
-                        : "Play"}
+                        ? "Prohra"
+                        : "Hraj"}
             </h2>
 
             {/* v budoucnu si dát si pozor na canvas.width vs canvas.clinetWidth */}
@@ -500,10 +500,10 @@ export default function Breakout() {
                     ? startGame
                     : gameRestarter}>
                 {gameStatus === "start"
-                    ? "Start game"
+                    ? "Spusť hru"
                     : gameStatus === "playing"
-                        ? "Enjoy"
-                        : "Again"}
+                        ? "Hodně štěstí"
+                        : "Znovu"}
             </button>
         </div>
     );
