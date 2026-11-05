@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import ThemeButton from "@/features/theme/theme-button";
-import Head from "next/head";
 import Header from "@/features/header/header";
 
 
@@ -10,10 +10,19 @@ export const metadata: Metadata = {
   description: "Frontend Developer",
 };
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-heading",
+  display: "swap",
+});
 export default function RootLayout({ children }: LayoutProps<"/">) {
+
+
   return (
     <html
       lang="cs"
+      className={spaceGrotesk.variable}
       // suppress je potřeba kvůli změně theme v html ještě před hydratací, aby neproblikávala bílý pře refreshi
       suppressHydrationWarning
     >
@@ -49,7 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full">
         <Header />
         <main>
-        {children}
+          {children}
         </main>
         <ThemeButton />
       </body>

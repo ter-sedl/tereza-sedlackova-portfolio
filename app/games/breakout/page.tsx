@@ -481,7 +481,7 @@ export default function Breakout() {
 
     return (
         <div className={styles.breakout}>
-            <h1>Breakout</h1>
+            <h1 className="font-heading">Breakout</h1>
             <h2>
                 {gameResult === "won"
                     ? "You won"

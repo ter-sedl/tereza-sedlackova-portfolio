@@ -128,6 +128,15 @@
 
 /* GLOBAL STYLES */
 
+.font-heading {
+    font-family: var(--font-heading), sans-serif;
+   font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    text-align: center;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -165,7 +174,7 @@ a:hover {
 
 
 @media (max-width: 600px) {
-  .main {
-    width: 100%;
-  }
+    .main {
+        width: 100%;
+    }
 }
