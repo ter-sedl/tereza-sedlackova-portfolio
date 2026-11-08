@@ -17,6 +17,8 @@ export default function Breakout() {
 
     const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
     const bricks = useRef<Brick[]>([]);
+    // ref k ukončení loop na konci hry
+    const isGameLoopRunning = useRef(false);
 
     const keys = useRef({
         ArrowLeft: false,
@@ -36,8 +38,8 @@ export default function Breakout() {
 
 
     const ball = useRef<Ball>({
-        x: 395,
-        y: 552,
+        x: 400,
+        y: 554,
         radius: 16,
         velocityX: 0,
         velocityY: 0,
@@ -188,8 +190,8 @@ export default function Breakout() {
         }
         // konec hry při rozbití všech cihel
         if (!bricks.current.find((brick) => brick.alive)) {
-            ball.current.x = 395;
-            ball.current.y = 552;
+            ball.current.x = 400;
+            ball.current.y = 554;
             ball.current.velocityX = 0;
             ball.current.velocityY = 0;
             setGameResult("won");
@@ -355,10 +357,10 @@ export default function Breakout() {
             ball.current.velocityY *= -1;
         }
         if (ball.current.y + ball.current.radius >= 600) { // pád spodní části na zem
-            ball.current.x = 395;
-            ball.current.y = 552;
-            ball.current.velocityX = 0;
-            ball.current.velocityY = 0;
+            // ball.current.x = 395;
+            // ball.current.y = 552;
+            // ball.current.velocityX = 0;
+            // ball.current.velocityY = 0;
 
             stopGameLoop();
             setGameResult("lost");
@@ -407,15 +409,21 @@ export default function Breakout() {
         update();
         draw(ctxRef.current!);
 
+        if (!isGameLoopRunning.current) return;
+
         animationId.current = requestAnimationFrame(gameLoop);
     }
-    // gameLoop();
 
     function startGameLoop() {
+        if (isGameLoopRunning.current) return;
+
+        isGameLoopRunning.current = true;
         gameLoop();
     };
 
     function stopGameLoop() {
+        isGameLoopRunning.current = false;
+
         if (animationId.current !== null) {
             cancelAnimationFrame(animationId.current);
             animationId.current = null;
@@ -461,8 +469,8 @@ export default function Breakout() {
         bricks.current = createBricks(GAME_LAYOUTS[Math.floor(Math.random() * GAME_LAYOUTS.length)]);
 
         // reset ball
-        ball.current.x = 395;
-        ball.current.y = 552;
+        ball.current.x = 400;
+        ball.current.y = 554;
         ball.current.velocityX = 0;
         ball.current.velocityY = 0;
 

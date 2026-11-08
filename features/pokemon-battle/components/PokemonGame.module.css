@@ -1,5 +1,7 @@
 .game {
     max-width: auto;
+    width: min(90%, 800px);
+    margin: 0 auto;
     background: var(--color-bg-subtle);
     color: var(--color-text);
     border: 1px solid var(--color-border);

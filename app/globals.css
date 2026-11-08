@@ -60,6 +60,7 @@
      Rámečky karet, oddělovače a hranice sekcí */
     --color-border: #E4D8D0;
     --color-border-strong: #CDBBBF;
+    --color-border-exterem: #1c1c1c;
 
     /* INTERACTION
      Odkaz při najetí, fokus klávesnicí */
@@ -119,6 +120,7 @@
     /* BORDERS */
     --color-border: #493D4B;
     --color-border-strong: #68566B;
+    --color-border-exterem: #1c1c1c;
 
     /* INTERACTION */
     --color-text-link-hover: #F0D5EF;
@@ -155,6 +157,7 @@ body {
 main {
     width: min(90%, 1200px);
     margin: 0 auto;
+    margin-bottom: 2rem;
     /* padding: 2rem 1rem; */
 }
 
