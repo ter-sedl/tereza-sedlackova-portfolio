@@ -9,6 +9,7 @@
 
 .game h1 {
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 @media (orientation: landscape) and (max-height: 500px) {

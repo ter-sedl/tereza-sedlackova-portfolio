@@ -134,7 +134,7 @@
     font-weight: 300;
     line-height: 1;
     letter-spacing: -0.025em;
-    text-align: center;
+    /* text-align: center; */
 }
 
 * {
