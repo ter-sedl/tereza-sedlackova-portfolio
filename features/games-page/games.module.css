@@ -25,10 +25,25 @@
 }
 
 .gameImage {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.lightImage {
+  display: block;
+}
+
+.darkImage {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .lightImage {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .darkImage {
+  display: block;
 }
 
 /* Název a popis */

@@ -23,9 +23,24 @@ export default function Games() {
                                 width={200}
                                 height={200}
                                 loading="eager"
-                                className={styles.gameImage}
+                                className={`
+                                    ${styles.gameImage}
+                                    ${styles.darkImage}
+                                `}
+                            />
+                            <Image
+                                src="/breakout-light.png"
+                                alt="Náhled hry Breakout"
+                                width={200}
+                                height={200}
+                                loading="eager"
+                                className={`
+                                    ${styles.gameImage}
+                                    ${styles.lightImage}
+                                `}
                             />
                         </div>
+
 
                         <h2 className={styles.gameTitle}>Breakout</h2>
 
