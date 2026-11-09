@@ -158,7 +158,7 @@ function PokemonGame() {
   return (
     <GameContext.Provider value={gameState}>
       <div className={styles.game} >
-        <h1 className="font-heading">Pokemon type battle</h1>
+        <h1 className="font-heading">Pokemon Battle</h1>
         <BattleField
           enemy={gameState.enemy}
           selectedPokemon={gameState.selectedPokemon}

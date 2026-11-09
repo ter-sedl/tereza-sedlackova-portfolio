@@ -1,3 +1,28 @@
+.gamesOverview {
+      width: 100%;
+  padding: 0.1rem clamp(1.25rem, 5vw, 5rem);
+}
+.sectionTitle {
+  margin: 0 0 2rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .main {
+    flex-direction: row;
+  }
+}
 
 .gameCard {
   position: relative;
@@ -12,6 +37,7 @@
   border: 1px solid var(--color-border);
   border-radius: 1rem;
   background: var(--color-surface);
+  height: min-content;
 }
 
 .gameImageWrapper {
@@ -21,7 +47,7 @@
   margin: -7rem auto 1rem;
   overflow: hidden;
   border-radius: 1rem;
-   border: 1px solid var(--color-plum);
+   border: 2px solid var(--color-plum);
 }
 
 .gameImage {
@@ -111,7 +137,7 @@
 }
 
 .technicalDetails summary::after {
-  content: "+";
+  content: "↓";
   color: var(--color-plum);
   font-size: 1.25rem;
 }
@@ -121,7 +147,7 @@
 }
 
 .technicalDetails[open] summary::after {
-  content: "−";
+  content: "↑";
 }
 
 .detailsContent {
