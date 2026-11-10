@@ -132,11 +132,18 @@
 
 .font-heading {
     font-family: var(--font-heading), sans-serif;
-   font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 300;
     line-height: 1;
     letter-spacing: -0.025em;
     /* text-align: center; */
+}
+
+.font-paragraph {
+    font-family: var(--font-heading), sans-serif;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.025em;
 }
 
 * {
@@ -177,38 +184,27 @@ a:hover {
 
 /* Animace při načtení */
 @keyframes fadeDrop {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .fadeDrop {
-  animation: fadeDrop 0.7s ease-out both;
-}
-
-.fadeDrop:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.fadeDrop:nth-child(2) {
-  animation-delay: 0.1s;
-}
-
-.fadeDrop:nth-child(3) {
-  animation-delay: 0.2s;
+    animation: fadeDrop 0.7s ease-out both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fadeDrop {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
+    .fadeDrop {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
 }
 
 
