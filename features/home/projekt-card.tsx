@@ -11,7 +11,7 @@ type ProjectCardType = {
 export default function ProjectCard({ index, name, link, tags = [""], children }: ProjectCardType) {
     return (
         <article
-            className="relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-7 sm:pb-10"
+            className="relative w-full min-w-0 flex-1 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-7 sm:pb-10 md:w-0"
         >
             <div className="mb-4 flex items-center gap-3">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--color-plum-soft)] text-sm font-semibold text-[var(--color-plum)]">

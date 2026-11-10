@@ -59,7 +59,7 @@ export default function Home() {
 
           {/* Na malých zařízeních jsou články pod sebou,
             od breakpointu md vedle sebe. */}
-          <div className="flex flex-col gap-6 md:flex-row">
+          <div className="flex w-full flex-col items-center gap-6 md:flex-row md:items-stretch">
             <ProjectCard index="01" name="Breakout" tags={["Canvas", "useRef", "useEffect", "Typescript"]} link="./games/breakout" >
               Klasická arkádová hra vytvořená pomocí HTML Canvas.
               <br />
