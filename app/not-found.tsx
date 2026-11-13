@@ -9,7 +9,7 @@ export default function NotFound() {
         <div className="flex flex-col text-center justify-center w-auto h-auto">
             <Image
                 src="/notFound.jpg"
-                alt="Popis obrázku"
+                alt="these are not the routes you're looking for"
                 width={900}
                 height={600}
                 className="w-auto"

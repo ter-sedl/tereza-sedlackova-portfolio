@@ -4,10 +4,10 @@ Osobní portfolio vytvořené pomocí Next.js, Reactu a TypeScriptu. Obsahuje ú
 
 Cílem projektu je představit mé znalosti a praktické zkušenosti s vývojem webových aplikací.
 
-**[Live demo – Zobrazit portfolio](DOPLŇ_URL)**
+**[Live demo – Zobrazit portfolio](https://tereza-sedlackova-portfolio.vercel.app/)**
 
 
-<img src="./docs/images/homepage.png" alt="Homepage" width="700">
+<img src="./docs/images/homepage_v2.png" alt="Homepage" width="700">
 
 ---
 
