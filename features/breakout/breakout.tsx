@@ -123,35 +123,6 @@ export default function Breakout() {
             ctx.restore();
         });
 
-
-
-
-        // const gradient = ctx.createLinearGradient(250, 250, 200, 130);
-        // gradient.addColorStop(0, "#7bd6eb");
-        // gradient.addColorStop(1, "#88f97c");
-
-        // bricks.current.forEach((brick) => {
-        //     if (!brick.alive) return;
-
-        //     ctx.save(); //uloží aktuální nastavení ctx
-        //     ctx.shadowColor = "rgba(0, 0, 0, 0.2)";
-        //     ctx.shadowBlur = 4;
-        //     ctx.shadowOffsetX = 1;
-        //     ctx.shadowOffsetY = 1;
-        //     ctx.fillStyle = gradient;
-
-        //     ctx.beginPath();
-        //     ctx.roundRect(
-        //         brick.x,
-        //         brick.y,
-        //         brick.width,
-        //         brick.height,
-        //         8
-        //     );
-
-        //     ctx.fill();
-        //     ctx.restore(); // vrátí se k naposledy uloženému nastavené ctx
-        // });
     }
 
     function checkBrickCollision() {
@@ -227,22 +198,6 @@ export default function Breakout() {
         ctx.fill();
 
         ctx.restore();
-
-
-
-        // ctx.save();
-        // ctx.fillStyle = "grey";
-
-        // ctx.beginPath();
-        // ctx.arc(
-        //     ball.current.x,              // x
-        //     ball.current.y,              // y
-        //     ball.current.radius,               // radius
-        //     0,                // začátek úhlu
-        //     Math.PI * 2       // konec úhlu = celý kruh
-        // );
-        // ctx.fill();
-        // ctx.restore();
     }
 
     function drawPaddle(ctx: CanvasRenderingContext2D) {
@@ -270,21 +225,6 @@ export default function Breakout() {
         );
         ctx.fill();
         ctx.restore();
-
-
-        // ctx.save();
-        // ctx.fillStyle = "blue";
-
-        // ctx.beginPath();
-        // ctx.roundRect(
-        //     paddle.x,  // x
-        //     paddle.y,  // y
-        //     paddle.width,  // width
-        //     paddle.height,    // height
-        //     8 //radius
-        // );
-        // ctx.fill();
-        // ctx.restore();
     }
 
 

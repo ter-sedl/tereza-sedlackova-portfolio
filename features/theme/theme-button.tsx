@@ -104,15 +104,9 @@ export default function ThemeButton() {
                 className={styles.themeToggle}
             >
                 {mounted ? (
-                    <>
-                        {/* <span aria-hidden="true">
-                            {resolvedTheme === "dark" ? "☀" : "☾"}
-                        </span> */}
-
                         <span className="styles[theme-toggle__label]">
                             {resolvedTheme === "dark" ? "Light" : "Dark"}
-                        </span>
-                    </>
+                        </span>                    
                 ) : (
                     <span className="styles[theme-toggle__label] invisible" aria-hidden="true">
                      Light

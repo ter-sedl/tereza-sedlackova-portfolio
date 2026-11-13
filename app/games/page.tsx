@@ -9,12 +9,7 @@ export default function Games() {
                 <h2 className={styles.sectionTitle}>
                     Moje projekty
                 </h2>
-                {/* Na malých zařízeních jsou články pod sebou,
-            od breakpointu md vedle sebe. */}
                 <div className={styles.main}>
-
-
-
                     <article className={styles.gameCard}>
                         <div className={styles.gameImageWrapper}>
                             <Image
@@ -40,7 +35,6 @@ export default function Games() {
                                 `}
                             />
                         </div>
-
 
                         <h2 className={styles.gameTitle}>Breakout</h2>
 
@@ -256,33 +250,6 @@ export default function Games() {
                             <Link href="/games/pokemon-battle">Hraj →</Link>
                         </span>
                     </article>
-
-
-
-
-                    {/* 
-                    <article className=" relative flex-1 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
-                        <h3 className="mb-3 text-xl text-[var(--color-text)]">
-                            Pokemon Battle
-                        </h3>
-                        <Image
-                            src="/pokemon-dark.png"
-                            alt="pokemon"
-                            width={150}
-                            height={100}
-                            className="w-auto rounded-xl border border-[var(--color-border-exterem)]"
-                            loading="eager"
-                        />
-
-                        <p className="text-base text-[var(--color-text-secondary)]">
-                            Karetní soubojová hra ze světa Pokémonů.
-                            <br />
-                            Vyber nejlepšího Pokémona podle typové účinnosti a poraz soupeře.
-                        </p>
-                        <span className="absolute bottom-4 right-4">
-                            <Link href={"./games/pokemon-battle"}>Hraj →</Link>
-                        </span>
-                    </article> */}
 
                 </div>
             </section>

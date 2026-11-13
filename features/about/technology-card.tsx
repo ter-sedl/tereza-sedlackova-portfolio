@@ -1,5 +1,3 @@
-
-
 type TechnologyCardType = {
     index: string;
     name: string;

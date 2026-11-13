@@ -3,8 +3,6 @@ import Link from "next/link";
 
 export default function NotFound() {
 
-    // kdybych chtěla v rámci funkce někoho přesměrovat, tak existuje funkce redirect (z next/navigation), do které jen zadám path
-
     return (
         <div className="flex flex-col text-center justify-center w-auto h-auto">
             <Image
