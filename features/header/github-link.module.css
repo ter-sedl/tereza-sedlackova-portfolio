@@ -1,0 +1,45 @@
+.github {
+  margin-left: 0.7rem;
+  display: inline-flex;
+  position: relative;
+}
+
+.github:hover .tooltipText {
+  opacity: 1;
+  visibility: visible;
+}
+
+.githubIcon {
+  filter: brightness(0);
+  transition: filter 180ms ease;
+}
+
+:root[data-theme="dark"] .githubIcon {
+  filter: brightness(0) invert(1);
+}
+
+.tooltip {
+position: absolute;
+  width: 1rem;
+  font-size: 0.8rem;
+  left: 90%;
+  color: var(--color-text);
+}
+
+.tooltipText {
+  opacity: 0;
+  visibility: hidden;
+  padding: 0.25em 0.5em;
+  background-color: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  text-align: center;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 100%;
+transition: opacity 0.2s ease, visibility 0.2s ease;
+}

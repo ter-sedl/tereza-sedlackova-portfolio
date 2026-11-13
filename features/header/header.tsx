@@ -3,6 +3,8 @@
 import Link from "next/link";
 import styles from "./header.module.css";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import GithubLink from "./github-link";
 
 export default function Header() {
 
@@ -14,15 +16,18 @@ export default function Header() {
         className={styles.nav}
         aria-label="Hlavní navigace"
       >
-        <Link
-          href="/"
-          className={styles.homeLink}
-          aria-label="Domů"
-        >
-          <span className={styles.homeIcon} aria-hidden="true">
-            🏠︎
-          </span>
-        </Link>
+        <div className={styles.leftLinks}>
+          <Link
+            href="/"
+            className={styles.homeLink}
+            aria-label="Domů"
+          >
+            <span className={styles.homeIcon} aria-hidden="true">
+              🏠︎
+            </span>
+          </Link>
+          <GithubLink />
+        </div>
 
         <div className={styles.navLinks}>
           <Link href="/games" className={`

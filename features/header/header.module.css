@@ -16,6 +16,10 @@
   gap: 2rem;
 }
 
+.leftLinks {
+  display: inline-flex;
+}
+
 .homeLink {
   display: inline-flex;
   align-items: center;
