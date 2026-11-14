@@ -12,28 +12,30 @@ export default function Games() {
                 <div className={styles.main}>
                     <article className={styles.gameCard}>
                         <div className={styles.gameImageWrapper}>
-                            <Image
-                                src="/breakout-dark.png"
-                                alt="Náhled hry Breakout"
-                                width={200}
-                                height={200}
-                                loading="eager"
-                                className={`
+                            <Link href="/games/breakout">
+                                <Image
+                                    src="/breakout-dark.png"
+                                    alt="Náhled hry Breakout"
+                                    width={200}
+                                    height={200}
+                                    loading="eager"
+                                    className={`
                                     ${styles.gameImage}
                                     ${styles.darkImage}
-                                `}
-                            />
-                            <Image
-                                src="/breakout-light.png"
-                                alt="Náhled hry Breakout"
-                                width={200}
-                                height={200}
-                                loading="eager"
-                                className={`
+                                    `}
+                                />
+                                <Image
+                                    src="/breakout-light.png"
+                                    alt="Náhled hry Breakout"
+                                    width={200}
+                                    height={200}
+                                    loading="eager"
+                                    className={`
                                     ${styles.gameImage}
                                     ${styles.lightImage}
-                                `}
-                            />
+                                    `}
+                                />
+                            </Link>
                         </div>
 
                         <h2 className={styles.gameTitle}>Breakout</h2>
@@ -107,29 +109,31 @@ export default function Games() {
 
                     <article className={styles.gameCard}>
                         <div className={styles.gameImageWrapper}>
-                            <Image
-                                src="/pokemon-battle-dark.png"
-                                alt="Náhled hry Pokemon Battle"
-                                width={200}
-                                height={200}
-                                loading="eager"
-                                unoptimized
-                                className={`
+                            <Link href="/games/pokemon-battle">
+                                <Image
+                                    src="/pokemon-battle-dark.png"
+                                    alt="Náhled hry Pokemon Battle"
+                                    width={200}
+                                    height={200}
+                                    loading="eager"
+                                    unoptimized
+                                    className={`
                                     ${styles.gameImage}
                                     ${styles.darkImage}
-                                `}
-                            />
-                            <Image
-                                src="/pokemon-battle-light.png"
-                                alt="Náhled hry Pokemon Battle"
-                                width={200}
-                                height={200}
-                                loading="eager"
-                                className={`
+                                    `}
+                                />
+                                <Image
+                                    src="/pokemon-battle-light.png"
+                                    alt="Náhled hry Pokemon Battle"
+                                    width={200}
+                                    height={200}
+                                    loading="eager"
+                                    className={`
                                     ${styles.gameImage}
                                     ${styles.lightImage}
-                                `}
-                            />
+                                    `}
+                                />
+                            </Link>
                         </div>
 
 
